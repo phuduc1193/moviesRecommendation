@@ -1,0 +1,363 @@
+/* You can add global styles to this file, and also import other style files */
+$dark-primary: #252529;
+$primary: #73e298;
+$secondary: #8b8b9f;
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.clearfix::before, .clearfix::after {
+  display: table;
+
+  content: " ";
+}
+
+.clearfix::after {
+  clear: both;
+}
+
+.container {
+  width: 1440px;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 300;
+}
+
+hr {
+    display: block;
+
+    height: 1px;
+    margin: 1em 0;
+    padding: 0;
+
+    border: 0;
+    border-top: 1px solid #b4b4b4;
+}
+
+.logo {
+  float: left;
+
+  text-transform: uppercase;
+
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.5em;
+  font-weight: 400;
+
+  span {
+    color: $primary;
+
+    font-weight: 600;
+  }
+}
+
+.main-header {
+  display: flex;
+
+  padding: 1.5em 0;
+
+  background: white;
+
+  .main-nav {
+    float: right;
+
+    padding-top: 1em;
+
+    font-size: 1.2em;
+    a {
+      margin-left: 1em;
+
+      text-decoration: none;
+
+      color: $secondary;
+      &:hover, &:active, &:focus {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.main-banner {
+  position: relative;
+
+  width: 100%;
+  padding: 6.5em 0;
+
+  .banner-background {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    &::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      content: '';
+
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+
+  .banner-wrapper {
+    display: flex;
+
+    width: 1000px;
+    max-width: 90%;
+    margin: 0 auto;
+
+    justify-content: center;
+    align-items: center;
+
+    .banner-featured-poster {
+      position: relative;
+
+      float: left;
+
+      width: 375px;
+      .featured-image {
+        width: 375px;
+        max-width: 375px;
+
+        border-radius: 0.5em;
+        -webkit-box-shadow: 0px 0px 76px 0px rgba(0, 0, 0, 0.47);
+        -moz-box-shadow: 0px 0px 76px 0px rgba(0, 0, 0, 0.47);
+        box-shadow: 0px 0px 76px 0px rgba(0, 0, 0, 0.47);
+      }
+
+      .btn-play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+
+        width: 80px;
+        margin: -40px 0 0 -40px;
+      }
+    }
+
+    .banner-content {
+      float: left;
+
+      width: 500px;
+      margin-left: 100px;
+      .title {
+        display: inline;
+
+        color: white;
+
+        font-size: 1.75em;
+      }
+      .ratings {
+        display: inline;
+
+        margin-left: 1em;
+
+        color: white;
+        i {
+          margin: 0 0.15em;
+
+          color: $primary;
+
+          font-size: 1.35em;
+        }
+        .inactive {
+          color: #48494d;
+        }
+      }
+      .description {
+        color: #bbbebf;
+
+        font-size: 1em;
+        line-height: 2em;
+      }
+      .info {
+        margin-top: 3em;
+
+        color: white;
+
+        font-size: 0.8em;
+        font-weight: 700;
+        span {
+          margin: 0 0.5em;
+        }
+      }
+    }
+  }
+}
+
+.popular-movies, .popular-tvshows {
+  padding: 5em 0;
+
+  background: white;
+  header {
+    padding: 0 0 1.5em 0;
+    h2, .view-more {
+      display: inline;
+    }
+    h2 {
+      font-size: 1.75em;
+    }
+    .view-more {
+      float: right;
+
+      margin: 0.75em 3.5% 0;
+
+      font-size: 1em;
+
+      a {
+        text-decoration: none;
+
+        color: $secondary;
+
+        &:hover, &:focus, &:active {
+          color: darken($primary, 35%);
+        }
+      }
+    }
+  }
+}
+
+.row {
+  width: 100%;
+  .post {
+    float: left;
+
+    width: 14%;
+    margin-right: 2.5%;
+    img {
+      width: 100%;
+      max-width: 100%;
+
+      border-radius: 0.5em;
+    }
+    .title {
+      margin: 1em 0 0 0;
+
+      color: $dark-primary;
+
+      font-size: 1.25em;
+    }
+    .post-info {
+      margin: 1em 0 0 0;
+
+      color: $secondary;
+
+      font-size: 1.25em;
+    }
+  }
+}
+
+.weekly-subscriber {
+  padding: 5em 0;
+
+  text-align: center;
+
+  background: #2a2a2e;
+  .subscriber-wrapper {
+    width: 600px;
+    margin: 0 auto;
+  }
+  h2 {
+    color: white;
+
+    font-size: 1.75em;
+  }
+  .form-subscription {
+    margin-top: 3em;
+    input[type="text"], input[type="email"] {
+      width: 48%;
+      height: 3.25em;
+      margin: 0 0.5%;
+      padding: 0.5em 1.25em;
+
+      color: white;
+      border: none;
+      border-radius: 0.3em;
+      outline: none;
+      background: #404043;
+
+      font-size: 0.8em;
+    }
+  }
+  .group-input {
+    display: block;
+  }
+}
+
+.btn {
+  margin-top: 2em;
+  padding: 1em 4.5em;
+
+  text-decoration: none;
+
+  border: none;
+  border-radius: 2em;
+  outline: none;
+
+  font-size: 0.9em;
+  font-weight: 700;
+  &.btn-primary {
+    color: white;
+    background: $primary;
+
+    &:hover, &:active, &:focus {
+      cursor: pointer;
+
+      background: darken($primary, 5%);
+      -webkit-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.47);
+      -moz-box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.47);
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.47);
+    }
+  }
+}
+
+.main-footer {
+  padding: 2.5em 0;
+
+  text-align: center;
+  .logo {
+    float: none;
+
+    text-align: center;
+  }
+  .copyright {
+    margin: 0;
+
+    color: lighten($dark-primary, 50%);
+
+    font-size: 0.8em;
+  }
+  .footer-links {
+    display: inline;
+    a {
+      margin: 0 0.5em;
+
+      text-decoration: none;
+
+      color: $secondary;
+
+      font-size: 0.8em;
+      &:hover, &:focus, &:active {
+        color: darken($primary, 45%);
+      }
+    }
+  }
+}

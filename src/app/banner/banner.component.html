@@ -1,0 +1,21 @@
+<section class="main-banner clearfix">
+  <div class="banner-background" [ngStyle]="{ 'background-image': 'url(' + movie.banner_url + ')'}"></div>
+  <div class="banner-wrapper">
+    <div class="banner-featured-poster">
+      <img class="featured-image" src="{{movie.poster_url}}" alt="">
+      <img class="btn-play" src="" alt="Play Trailer">
+    </div>
+    <div class="banner-content">
+      <h2 class="title">{{movie.title}}</h2>
+      <div class="ratings">
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star inactive"></i> {{movie.vote_average}} / 10
+      </div>
+      <p class="description">{{movie.overview}}</p>
+      <p class="info">R <span>|</span> 100 min <span>|</span> Action, Adventure, Comedy <span>|</span> {{movie.release_date}}</p>
+    </div>
+  </div>
+</section>
