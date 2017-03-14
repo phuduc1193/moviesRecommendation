@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Movie } from '../class/movie';
 import 'rxjs';
 
 @Injectable()
@@ -15,7 +16,7 @@ export class HTTPRequestService {
                      .map((res:Response) => res.json().results);
   }
 
-  getMostPopular(id: number) {
+  getMovieDetails(id: number) {
     return this._http.get(this.movieUrl + id + '?api_key=' + this.api_key + this.language)
                      .map((res:Response) => res.json());
   }

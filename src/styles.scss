@@ -2,6 +2,37 @@
 $dark-primary: #252529;
 $primary: #73e298;
 $secondary: #8b8b9f;
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    transition:         $transition;
+}
+@mixin transition-property($property...) {
+    -webkit-transition-property: $property;
+    -moz-transition-property:    $property;
+    -o-transition-property:      $property;
+    transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+    -webkit-transition-property: $duration;
+    -moz-transition-property:    $duration;
+    -o-transition-property:      $duration;
+    transition-property:         $duration;
+}
+@mixin transition-timing-function($timing...) {
+    -webkit-transition-timing-function: $timing;
+    -moz-transition-timing-function:    $timing;
+    -o-transition-timing-function:      $timing;
+    transition-timing-function:         $timing;
+}
+@mixin transition-delay($delay...) {
+    -webkit-transition-delay: $delay;
+    -moz-transition-delay:    $delay;
+    -o-transition-delay:      $delay;
+    transition-delay:         $delay;
+}
+
 
 * {
   box-sizing: border-box;
@@ -77,6 +108,8 @@ hr {
       text-decoration: none;
 
       color: $secondary;
+
+      @include transition(all 0.3s ease);
       &:hover, &:active, &:focus {
         color: $primary;
       }
@@ -152,10 +185,19 @@ hr {
       .title {
         display: inline;
 
-        color: white;
-
         font-size: 1.75em;
         font-weight: 700;
+
+        a {
+          text-decoration: none;
+
+          color: white;
+
+          @include transition(color 0.3s ease);
+          &:hover, &:active, &:focus {
+            color: lighten($secondary, 20%);
+          }
+        }
       }
       .ratings {
         display: inline;
@@ -194,6 +236,8 @@ hr {
           text-decoration: none;
 
           color: white;
+
+          @include transition(all 0.3s ease);
           &:hover, &:active, &:focus {
             color: $secondary;
           }
@@ -207,18 +251,23 @@ hr {
   padding: 5em 0;
 
   background: white;
+  .container {
+    width: 1920px;
+  }
   header {
     padding: 0 0 1.5em 0;
     h2, .view-more {
       display: inline;
     }
     h2 {
+      margin-left: 1.25%;
+
       font-size: 1.75em;
     }
     .view-more {
       float: right;
 
-      margin: 0.75em 3.5% 0;
+      margin: 0.75em 1.5% 0;
 
       font-size: 1em;
 
@@ -227,6 +276,7 @@ hr {
 
         color: $secondary;
 
+        @include transition(all 0.3s ease);
         &:hover, &:focus, &:active {
           color: darken($primary, 35%);
         }
@@ -240,20 +290,38 @@ hr {
   .post {
     float: left;
 
-    width: 14%;
-    margin-right: 2.5%;
+    width: 14.15%;
+    margin: 2.5% 1.25% 0 1.25%;
     img {
       width: 100%;
       max-width: 100%;
 
       border-radius: 0.5em;
+      -webkit-box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.47);
+      -moz-box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.47);
+      box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.47);
+
+      @include transition(box-shadow 0.3s ease);
+
+      &:hover {
+        -webkit-box-shadow: 0px 7px 35px rgba(0, 0, 0, 0.77);
+        -moz-box-shadow: 0px 7px 35px rgba(0, 0, 0, 0.77);
+        box-shadow: 0px 7px 35px rgba(0, 0, 0, 0.77);
+      }
     }
-    .title {
+    a.title {
       margin: 1em 0 0 0;
+
+      text-decoration: none;
 
       color: $dark-primary;
 
-      font-size: 1.25em;
+      font-size: 1.1em;
+
+      @include transition(color 0.3s ease);
+      &:hover, &:active, &:focus {
+        color: darken($primary, 35%);
+      }
     }
     .post-info {
       margin: 1em 0 0 0;
@@ -318,6 +386,8 @@ hr {
     color: white;
     background: $primary;
 
+    @include transition(all 0.3s ease);
+
     &:hover, &:active, &:focus {
       cursor: pointer;
 
@@ -355,6 +425,8 @@ hr {
       color: $secondary;
 
       font-size: 0.8em;
+
+      @include transition(color 0.3s ease);
       &:hover, &:focus, &:active {
         color: darken($primary, 45%);
       }
