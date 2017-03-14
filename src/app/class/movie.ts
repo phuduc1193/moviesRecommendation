@@ -7,10 +7,6 @@ export class Movie {
   vote_average: number;
   release_date: string;
   homepage_url: string;
-  genres: MovieGenre[];
-}
-
-export class MovieGenre {
-  id: number;
-  name: string;
+  runtime: number;
+  genres: any;
 }

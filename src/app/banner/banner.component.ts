@@ -2,7 +2,7 @@ import { BrowserModule} from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../services/global.service';
 import { HTTPRequestService } from '../services/http-request.service';
-import { Movie, MovieGenre } from '../class/movie';
+import { Movie } from '../class/movie';
 import 'rxjs';
 
 @Component({
@@ -35,12 +35,31 @@ export class BannerComponent implements OnInit {
                                 this.movie.vote_average = data.vote_average;
                                 this.movie.banner_url = 'https://image.tmdb.org/t/p/w1280' + data.backdrop_path;
                                 this.movie.poster_url = 'https://image.tmdb.org/t/p/w500' + data.poster_path;
+                                this.movie.homepage_url = data.homepage;
+                                this.movie.runtime = data.runtime;
+                                this.movie.genres = data.genres;
                               },
                               error => console.log(error),
                               () => console.log("Finished")
                             );
                 }
               );
+  }
 
+  getRatingStars() {
+    let stars: number;
+    let inactiveStars: number;
+    let output: string;
+    output = '';
+    stars = this.movie.vote_average / 2;
+    stars = Math.round(stars);
+    inactiveStars = 5 - stars;
+    for (var _i = 0; _i < stars; _i++){
+      output += '<i class="fa fa-star"></i>';
+    }
+    for (var _i = 0; _i < inactiveStars; _i++){
+      output += '<i class="fa fa-star inactive"></i>';
+    }
+    return output;
   }
 }

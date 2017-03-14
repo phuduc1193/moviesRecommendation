@@ -2,20 +2,13 @@
   <div class="banner-background" [ngStyle]="{ 'background-image': 'url(' + movie.banner_url + ')'}"></div>
   <div class="banner-wrapper">
     <div class="banner-featured-poster">
-      <img class="featured-image" src="{{movie.poster_url}}" alt="">
-      <img class="btn-play" src="" alt="Play Trailer">
+      <img class="featured-image" [src]="movie.poster_url" [alt]="movie.title">
     </div>
     <div class="banner-content">
       <h2 class="title">{{movie.title}}</h2>
-      <div class="ratings">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star inactive"></i> {{movie.vote_average}} / 10
-      </div>
+      <div class="ratings" [innerHTML]="getRatingStars() + ' ' + movie.vote_average + ' / 10'"></div>
       <p class="description">{{movie.overview}}</p>
-      <p class="info">R <span>|</span> 100 min <span>|</span> Action, Adventure, Comedy <span>|</span> {{movie.release_date}}</p>
+      <p class="info"><a [href]="movie.homepage_url" target="_blank">Visit homepage</a> <span class="separator">|</span> {{movie.runtime}} mins <span class="separator">|</span> <span href="" class="genre" *ngFor="let genre of movie.genres; let last = last"><a href="/genre/{{genre.id}}">{{genre.name}}</a><span *ngIf="!last">,</span> </span><span class="separator">|</span> {{movie.release_date}}</p>
     </div>
   </div>
 </section>

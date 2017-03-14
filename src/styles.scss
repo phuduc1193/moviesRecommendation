@@ -142,15 +142,6 @@ hr {
         -moz-box-shadow: 0px 0px 76px 0px rgba(0, 0, 0, 0.47);
         box-shadow: 0px 0px 76px 0px rgba(0, 0, 0, 0.47);
       }
-
-      .btn-play {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-
-        width: 80px;
-        margin: -40px 0 0 -40px;
-      }
     }
 
     .banner-content {
@@ -164,6 +155,7 @@ hr {
         color: white;
 
         font-size: 1.75em;
+        font-weight: 700;
       }
       .ratings {
         display: inline;
@@ -195,8 +187,16 @@ hr {
 
         font-size: 0.8em;
         font-weight: 700;
-        span {
+        span.separator {
           margin: 0 0.5em;
+        }
+        a {
+          text-decoration: none;
+
+          color: white;
+          &:hover, &:active, &:focus {
+            color: $secondary;
+          }
         }
       }
     }
