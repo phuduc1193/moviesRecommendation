@@ -1,7 +1,9 @@
 <header class="main-header">
   <div class="container">
     <h1 class="logo" [innerHTML]="theTitle"></h1>
-    <nav class="main-nav">
+
+    <a href="#" class="menu" (click)="activeNav = !activeNav"><i class="fa fa-bars"></i></a>
+    <nav class="main-nav{{isActive()}}">
       <a href="">Movies</a>
       <a href="">TV Shows</a>
       <a href="">Celebs &amp; Photos</a>

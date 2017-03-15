@@ -39,6 +39,8 @@ $secondary: #8b8b9f;
 }
 
 html, body {
+  width: 100vw;
+
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -115,6 +117,10 @@ hr {
       }
     }
   }
+
+  .menu {
+    display: none;
+  }
 }
 
 .main-banner {
@@ -181,11 +187,14 @@ hr {
       float: left;
 
       width: 500px;
+      max-width: 100%;
       margin-left: 100px;
       .title {
         display: inline;
 
-        font-size: 1.75em;
+        cursor: pointer;
+
+        font-size: 2.5em;
         font-weight: 700;
 
         a {
@@ -217,9 +226,11 @@ hr {
         }
       }
       .description {
+        text-align: justify;
+
         color: #bbbebf;
 
-        font-size: 1em;
+        font-size: 1.2em;
         line-height: 2em;
       }
       .info {
@@ -227,8 +238,9 @@ hr {
 
         color: white;
 
-        font-size: 0.8em;
+        font-size: 1em;
         font-weight: 700;
+        line-height: 1.5em;
         span.separator {
           margin: 0 0.5em;
         }
@@ -253,6 +265,7 @@ hr {
   background: white;
   .container {
     width: 1920px;
+    max-width: 95%;
   }
   header {
     padding: 0 0 1.5em 0;
@@ -291,7 +304,7 @@ hr {
     float: left;
 
     width: 14.15%;
-    margin: 2.5% 1.25% 0 1.25%;
+    margin: 2.5% 1.25% 1% 1.25%;
     img {
       width: 100%;
       max-width: 100%;
@@ -341,6 +354,7 @@ hr {
   background: #2a2a2e;
   .subscriber-wrapper {
     width: 600px;
+    max-width: 90%;
     margin: 0 auto;
   }
   h2 {
@@ -430,6 +444,226 @@ hr {
       &:hover, &:focus, &:active {
         color: darken($primary, 45%);
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .main-header {
+    padding: 0.75em 0;
+    .main-nav {
+      position: absolute;
+
+      transform: translateY(-50px);
+
+      opacity: 0;
+
+      @include transition(translateY 0.3s ease);
+
+      &.active {
+        z-index: 100;
+        top: 7.5%;
+        right: 3%;
+        left: auto;
+
+        width: 40%;
+        padding-top: 0;
+
+        transform: translateY(0px);
+
+        opacity: 1;
+        border-top: 1px solid #efefef;
+        border-radius: 2px 2px 5px 5px;
+        background: white;
+        -webkit-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.27);
+        -moz-box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.27);
+        box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.27);
+        a {
+          display: block;
+
+          margin-left: 0;
+          padding: 1em 0;
+          padding-left: 1.2em;
+
+          border-bottom: 1px solid #e9e9e9;
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+    .menu {
+      display: block;
+      float: right;
+      i {
+        margin-top: 0.7em;
+
+        color: $dark-primary;
+
+        font-size: 1.5em;
+      }
+    }
+  }
+
+  .main-banner {
+    padding: 3.5em 0;
+    .banner-wrapper {
+      .banner-content {
+        margin-left: 20px;
+        .description {
+          line-height: 1.7em;
+        }
+        .info {
+          margin-top: 1.5em;
+        }
+      }
+    }
+  }
+
+  .popular-movies, .popular-tvshows {
+    padding: 2.5em 0;
+  }
+
+  .row {
+    .post {
+      width: 30.82%;
+      a.title {
+        font-size: 1.05em;
+      }
+      .post-info {
+        font-size: 0.95em;
+      }
+    }
+  }
+
+  .weekly-subscriber {
+    padding: 2.5em 0;
+  }
+
+  .main-footer {
+    padding: 1.5em 0;
+    .logo {
+      margin: 0.5em 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  .main-header {
+    .main-nav {
+      &.active {
+        top: 22%;
+        right: 3%;
+        width: 94%;
+      }
+    }
+  }
+
+  .main-banner {
+    .banner-wrapper {
+      .banner-featured-poster {
+        width: 250px;
+        .featured-image {
+          width: 250px;
+          max-width: 250px;
+        }
+      }
+      .banner-content {
+        .title {
+          font-size: 1.75em;
+        }
+        .ratings {
+          i {
+            font-size: 1em;
+          }
+        }
+        .description {
+          font-size: 1.1em;
+          line-height: 1.4em;
+        }
+        .info {
+          font-size: 0.9em;
+        }
+      }
+    }
+  }
+
+  .row {
+    .post {
+      width: 30.82%;
+      .post-info {
+        line-height: 0.8em;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .main-header {
+    .container {
+      .logo {
+        font-size: 1.15em;
+      }
+      .menu {
+        margin-top: -0.5em;
+      }
+    }
+    .main-nav {
+      &.active {
+        top: 8.5%;
+      }
+    }
+  }
+
+  .main-banner {
+    padding: 2.5em 0;
+    .banner-wrapper {
+      display: block;
+      .banner-featured-poster {
+        float: none;
+        display: block;
+        margin: 0 auto;
+      }
+      .banner-content {
+        margin: 1em 0 0 0;
+      }
+    }
+  }
+
+  .row {
+    .post {
+      width: 80%;
+      margin: 1em auto 0 auto;
+      float: none;
+    }
+  }
+
+  .popular-movies, .popular-tvshows {
+    header {
+      h2 {
+        font-size: 1.5em;
+      }
+      .view-more {
+        font-size: 0.8em;
+        margin: 0.6em 1.5% 0 0;
+      }
+    }
+  }
+
+  .weekly-subscriber {
+    padding: 2em 0;
+    h2 {
+      font-size: 1.35em;
+    }
+    .form-subscription {
+      margin-top: 1em;
+      input[type="text"], input[type="email"] {
+        width: 90%;
+        margin: 0 0 1em 0;
+      }
+    }
+    .btn {
+      margin-top: 0.5em;
     }
   }
 }
