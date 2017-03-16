@@ -11,7 +11,7 @@ import { PopularTVShowsComponent } from './popular-tvshows/popular-tvshows.compo
 import { WeeklySubscriberComponent } from './weekly-subscriber/weekly-subscriber.component';
 import { FooterComponent } from './footer/footer.component';
 
-import { Movie } from './class/movie';
+import { Movie, Genre, TVShow, TVSeason } from './class';
 
 import { GlobalService } from './services/global.service';
 import { HTTPRequestService } from './services/http-request.service';

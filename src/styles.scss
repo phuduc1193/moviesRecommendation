@@ -33,14 +33,11 @@ $secondary: #8b8b9f;
     transition-delay:         $delay;
 }
 
-
 * {
   box-sizing: border-box;
 }
 
 html, body {
-  width: 100vw;
-
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -120,6 +117,13 @@ hr {
 
   .menu {
     display: none;
+  }
+
+  a {
+    color: $dark-primary;
+    &:hover, &:active, &:focus {
+      color: $secondary;
+    }
   }
 }
 
@@ -639,14 +643,27 @@ hr {
   }
 
   .popular-movies, .popular-tvshows {
+    padding-top: 1em;
     header {
       h2 {
+        margin: 0.5em 0;
         font-size: 1.5em;
+        display: block;
+        text-align: center;
       }
       .view-more {
         font-size: 0.8em;
-        margin: 0.6em 1.5% 0 0;
+        display:block;
+        text-align: center;
+        margin-bottom: 1.5em;
+        float: none;
       }
+    }
+  }
+
+  .post {
+    h3 {
+      margin: 0.5em 0;
     }
   }
 
