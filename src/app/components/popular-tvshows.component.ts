@@ -5,7 +5,21 @@ import 'rxjs';
 
 @Component({
   selector: 'app-popular-tvshows',
-  templateUrl: './popular-tvshows.component.html'
+  template: `<section class="popular-tvshows clearfix">
+    <header class="container clearfix">
+      <h2>Popular TV Shows</h2>
+      <p class="view-more"><a href="/tv/popular?">View Top Ratings Shows</a></p>
+      <div class="row">
+        <div class="post"></div>
+        <div class="post"></div>
+        <div class="post"></div>
+        <div class="post"></div>
+        <div class="post"></div>
+        <div class="post"></div>
+      </div>
+    </header>
+  </section>
+`
 })
 export class PopularTVShowsComponent implements OnInit {
 

@@ -5,7 +5,23 @@ import 'rxjs';
 
 @Component({
   selector: 'app-popular-movies',
-  templateUrl: './popular-movies.component.html'
+  template: `
+  <section class="popular-movies clearfix">
+    <header class="container clearfix">
+      <h2>Popular Movies</h2>
+      <p class="view-more"><a href="/movie/popular?">View Top Ratings Movies</a></p>
+      <div class="row">
+        <div class="post"></div>
+        <div class="post"></div>
+        <div class="post"></div>
+        <div class="post"></div>
+        <div class="post"></div>
+        <div class="post"></div>
+      </div>
+    </header>
+  </section>
+  <hr>
+`
 })
 export class PopularMoviesComponent implements OnInit {
   constructor(private _globals: GlobalService, private _http:HTTPRequestService) { }

@@ -1,21 +1,24 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { BannerComponent } from './banner/banner.component';
-import { PopularMoviesComponent } from './popular-movies/popular-movies.component';
-import { PopularTVShowsComponent } from './popular-tvshows/popular-tvshows.component';
-import { WeeklySubscriberComponent } from './weekly-subscriber/weekly-subscriber.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './components/header.component';
+import { BannerComponent } from './components/banner.component';
+import { PopularMoviesComponent } from './components/popular-movies.component';
+import { PopularTVShowsComponent } from './components/popular-tvshows.component';
+import { WeeklySubscriberComponent } from './components/weekly-subscriber.component';
+import { FooterComponent } from './components/footer.component';
+import { HomeComponent } from './components/home.component';
+import { PageNotFoundComponent } from './components/not-found.component';
 
-const router = [
-  { path: '', component: HomeComponent}
+const router: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'movie/:title', loadChildren: 'app/modules/movies.module#MoviesModule'},
+  { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(router) ],
+  imports: [ RouterModule.forRoot(router, { preloadingStrategy: PreloadAllModules }) ],
   exports: [ RouterModule ]
 })
 
