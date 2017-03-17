@@ -22,9 +22,7 @@ export class PopularTVShowsComponent implements OnInit {
                     if (index < 6) {
                       var el = elements[index];
                       date = new Date(dataObject.first_air_date);
-                      el.innerHTML = '<a href="/movie/' + dataObject.id + '"><img src="' + this._globals.posterPath + dataObject.poster_path + '" alt="' + dataObject.name + '"></a>' + '<a href="/movie/' + dataObject.id + '" class="title"><h3>' + dataObject.name + '</h3></a>' + '<p class="post-info">Ratings: ' + dataObject.vote_average + '</p><p class="post-info">' + this._globals.formatDate(date) + '</p>';
-                      console.log(dataObject);
-                      console.log(index);
+                      el.innerHTML = '<a href="/show/' + dataObject.name + '"><img src="' + this._globals.posterPath + dataObject.poster_path + '" alt="' + dataObject.name + '"></a>' + '<a href="/show/' + dataObject.name + '" class="title"><h3>' + dataObject.name + '</h3></a>' + '<p class="post-info">Ratings: ' + dataObject.vote_average + '</p><p class="post-info">' + this._globals.formatDate(date) + '</p>';
                     }
                   });
                 },

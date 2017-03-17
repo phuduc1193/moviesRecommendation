@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../services/global.service';
 import { HTTPRequestService } from '../services/http-request.service';
-import { Movie } from '../class/movie';
+import { Movie } from '../class';
 import 'rxjs';
 
 @Component({
@@ -27,7 +27,6 @@ export class BannerComponent implements OnInit {
                   this._http.getMovieDetails(this.movie.id)
                             .subscribe(
                               data => {
-                                console.log(data);
                                 this.movie.title = data.title;
                                 date = new Date(data.release_date);
                                 this.movie.release_date = this._globals.formatDate(date);

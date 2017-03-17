@@ -20,7 +20,7 @@ export class PopularMoviesComponent implements OnInit {
                     if (index < 6) {
                       var el = elements[index];
                       date = new Date(dataObject.release_date);
-                      el.innerHTML = '<a href="/movie/' + dataObject.id + '"><img src="' + this._globals.posterPath + dataObject.poster_path + '" alt="' + dataObject.title + '"></a>' + '<a href="/movie/' + dataObject.id + '" class="title"><h3>' + dataObject.title + '</h3></a>' + '<p class="post-info">Ratings: ' + dataObject.vote_average + '</p><p class="post-info">' + this._globals.formatDate(date) + '</p>';
+                      el.innerHTML = '<a href="/movie/' + dataObject.title + '"><img src="' + this._globals.posterPath + dataObject.poster_path + '" alt="' + dataObject.title + '"></a>' + '<a href="/movie/' + dataObject.title + '" class="title"><h3>' + dataObject.title + '</h3></a>' + '<p class="post-info">Ratings: ' + dataObject.vote_average + '</p><p class="post-info">' + this._globals.formatDate(date) + '</p>';
                     }
                   });
                 },
