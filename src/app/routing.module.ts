@@ -10,10 +10,11 @@ import { WeeklySubscriberComponent } from './components/weekly-subscriber.compon
 import { FooterComponent } from './components/footer.component';
 import { HomeComponent } from './components/home.component';
 import { PageNotFoundComponent } from './components/not-found.component';
+import { MovieComponent } from './components/movie.component';
 
 const router: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'movie/:title', loadChildren: 'app/modules/movies.module#MoviesModule'},
+  { path: 'movie/:id', loadChildren: 'app/modules/movies.module#MoviesModule'},
   { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -23,3 +24,18 @@ const router: Routes = [
 })
 
 export class RoutingModule { }
+
+@NgModule({
+    imports: [
+        RouterModule.forChild([
+            {
+                path: '',
+                component: MovieComponent
+            }
+        ])
+    ],
+    exports: [
+        RouterModule
+    ]
+})
+export class MovieRoutingModule { }

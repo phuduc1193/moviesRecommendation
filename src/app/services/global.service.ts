@@ -4,13 +4,4 @@ import { Injectable } from '@angular/core';
 export class GlobalService {
   pageTitle:string = 'Movies Recommendation';
   pageAuthor:string = 'Duc Truong';
-  bannerPath:string = 'https://image.tmdb.org/t/p/w1280';
-  posterPath:string = 'https://image.tmdb.org/t/p/w500';
-
-  formatDate (d: Date) {
-    var monthNames = ["January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
-    ];
-    return d.getDate() + ' ' + monthNames[d.getMonth()] + ' ' + d.getFullYear();
-  }
 }

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { HTTPRequestService } from '../services/http-request.service';
 import { Movie } from '../class';
 import 'rxjs';
 
 @Component({
-  selector: 'app-banner',
+  selector: 'app-movie-details',
   template: `
   <section class="main-banner clearfix">
     <div class="banner-background" [ngStyle]="{ 'background-image': 'url(' + movie.backdrop_path + ')'}"></div>
@@ -22,23 +23,23 @@ import 'rxjs';
   </section>
 `
 })
-export class BannerComponent implements OnInit {
+export class MovieDetailsComponent implements OnInit {
   movie: Movie;
 
-  constructor(private _http:HTTPRequestService) { this.movie = new Movie; }
+  constructor(private _http:HTTPRequestService, private route: ActivatedRoute) { this.movie = new Movie; }
 
   ngOnInit() {
     let date: Date;
-    this._http.getPopularMovies()
-              .switchMap((data) => this._http.getMovieDetails(data[0].id))
-              .subscribe(
-                data => {
-                  this.movie = data;
-                  this._http.formatMovie(this.movie);
-                },
-                error => console.log(error),
-                () => console.log("Finished")
-              );
+    this.route.params.switchMap((params: Params) => this._http.getMovieDetails(+params['id']))
+                      .subscribe(
+                        data => {
+                          this.movie = data;
+                          this._http.formatMovie(this.movie);
+                          console.log(data);
+                        },
+                        error => console.log(error),
+                        () => console.log("Finished")
+                      );
   }
 
   getRatingStars() {

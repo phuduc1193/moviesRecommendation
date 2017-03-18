@@ -28,4 +28,22 @@ export class HTTPRequestService {
     return this._http.get(this.movieUrl + id + '?api_key=' + this.api_key + this.language)
                      .map((res:Response) => res.json());
   }
+
+  formatMovie(movie: Movie){
+    let date: Date;
+    movie.poster_path = imagePath + 'w500' + movie.poster_path;
+    movie.backdrop_path = imagePath + 'w1280' + movie.backdrop_path;
+    date = new Date(movie.release_date);
+    movie.release_date = formatDate(date);
+    movie.belongs_to_collection.poster_path = imagePath + 'w500' + movie.belongs_to_collection.poster_path;
+    movie.belongs_to_collection.backdrop_path = imagePath + 'w1280' + movie.belongs_to_collection.backdrop_path;
+  }
+}
+
+let imagePath: string = 'https://image.tmdb.org/t/p/';
+function formatDate (d: Date) {
+  var monthNames = ["January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+  return d.getDate() + ' ' + monthNames[d.getMonth()] + ' ' + d.getFullYear();
 }

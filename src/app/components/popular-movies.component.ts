@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { GlobalService } from '../services/global.service';
 import { HTTPRequestService } from '../services/http-request.service';
 import 'rxjs';
 
@@ -24,7 +23,7 @@ import 'rxjs';
 `
 })
 export class PopularMoviesComponent implements OnInit {
-  constructor(private _globals: GlobalService, private _http:HTTPRequestService) { }
+  constructor(private _http:HTTPRequestService) { }
 
   ngOnInit() {
     let date: Date;
@@ -32,11 +31,12 @@ export class PopularMoviesComponent implements OnInit {
               .subscribe(
                 data => {
                   var elements = document.querySelector('.popular-movies').getElementsByClassName('post');
+                  data.splice(0, 1);
                   data.forEach((dataObject, index) => {
                     if (index < 6) {
                       var el = elements[index];
                       date = new Date(dataObject.release_date);
-                      el.innerHTML = '<a href="/movie/' + dataObject.title + '"><img src="' + this._globals.posterPath + dataObject.poster_path + '" alt="' + dataObject.title + '"></a>' + '<a href="/movie/' + dataObject.title + '" class="title"><h3>' + dataObject.title + '</h3></a>' + '<p class="post-info">Ratings: ' + dataObject.vote_average + '</p><p class="post-info">' + this._globals.formatDate(date) + '</p>';
+                      el.innerHTML = '<a href="/movie/' + dataObject.id + '"><img src="https://image.tmdb.org/t/p/w500' + dataObject.poster_path + '" alt="' + dataObject.title + '"></a>' + '<a href="/movie/' + dataObject.id + '" class="title"><h3>' + dataObject.title + '</h3></a>' + '<p class="post-info">Ratings: ' + dataObject.vote_average + '</p><p class="post-info">' + this.formatDate(date) + '</p>';
                     }
                   });
                 },
@@ -45,4 +45,10 @@ export class PopularMoviesComponent implements OnInit {
               );
   }
 
+  formatDate (d: Date) {
+    var monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+    return d.getDate() + ' ' + monthNames[d.getMonth()] + ' ' + d.getFullYear();
+  }
 }
