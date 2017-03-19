@@ -8,7 +8,7 @@ import { GlobalService } from '../services/global.service';
     <div class="container">
       <a href=""><h1 class="logo" [innerHTML]="theTitle"></h1></a>
 
-      <a href="#" class="menu" (click)="activeNav = !activeNav"><i class="fa fa-bars"></i></a>
+      <a class="menu" (click)="activeNav = !activeNav"><i class="fa fa-bars"></i></a>
       <nav class="main-nav{{isActive()}}">
         <a href="">Movies</a>
         <a href="">TV Shows</a>

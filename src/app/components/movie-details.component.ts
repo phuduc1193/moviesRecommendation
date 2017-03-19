@@ -9,15 +9,18 @@ import 'rxjs';
   template: `
   <section class="main-banner clearfix">
     <div class="banner-background" [ngStyle]="{ 'background-image': 'url(' + movie.backdrop_path + ')'}"></div>
-    <div class="banner-wrapper">
+    <div class="banner-wrapper movie-details">
       <div class="banner-featured-poster">
         <a [href]="'/movie/' + movie.id"><img class="featured-image" [src]="movie.poster_path" [alt]="movie.title"></a>
       </div>
       <div class="banner-content">
-        <h2 class="title"><a [href]="'/movie/' + movie.id">{{movie.title}}</a></h2>
-        <div class="ratings" [innerHTML]="getRatingStars() + ' ' + movie.vote_average + ' / 10'"></div>
+        <h2 class="title"><a [href]="movie.homepage">{{movie.title}}</a></h2>
+        <div class="ratings" [innerHTML]="getRatingStars() + ' ' + movie.vote_average + ' <small>(' + movie.vote_count + ' votes)</small>'"></div>
+        <div class="info">{{movie.runtime}} mins <span class="separator">|</span> <span href="" class="genre" *ngFor="let genre of movie.genres; let last = last"><a href="/genre/{{genre.name}}">{{genre.name}}</a><span *ngIf="!last">,</span> </span><span class="separator">|</span> {{movie.release_date}}</div>
+        <q class="tagline">{{movie.tagline}}</q>
         <p class="description">{{movie.overview}}</p>
-        <p class="info"><a [href]="movie.homepage" target="_blank">Visit homepage</a> <span class="separator">|</span> {{movie.runtime}} mins <span class="separator">|</span> <span href="" class="genre" *ngFor="let genre of movie.genres; let last = last"><a href="/genre/{{genre.name}}">{{genre.name}}</a><span *ngIf="!last">,</span> </span><span class="separator">|</span> {{movie.release_date}}</p>
+        <p class="info">Popularity: {{movie.popularity}} <span class="separator">|</span> Budget: {{movie.budget}} <span class="separator">|</span> Revenue: {{movie.revenue}}</p>
+        <p class="collection"></p>
       </div>
     </div>
   </section>
@@ -31,11 +34,12 @@ export class MovieDetailsComponent implements OnInit {
   ngOnInit() {
     let date: Date;
     this.route.params.switchMap((params: Params) => this._http.getMovieDetails(+params['id']))
-                      .subscribe(
+                     .subscribe(
                         data => {
                           this.movie = data;
                           this._http.formatMovie(this.movie);
-                          console.log(data);
+                          if (this.movie.belongs_to_collection)
+                            document.querySelector('.collection').innerHTML = "Belongs to: <a href='collection/" + this.movie.belongs_to_collection.id + "'>" + this.movie.belongs_to_collection.name + "</a>";
                         },
                         error => console.log(error),
                         () => console.log("Finished")

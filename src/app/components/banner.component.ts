@@ -14,7 +14,7 @@ import 'rxjs';
       </div>
       <div class="banner-content">
         <h2 class="title"><a [href]="'/movie/' + movie.id">{{movie.title}}</a></h2>
-        <div class="ratings" [innerHTML]="getRatingStars() + ' ' + movie.vote_average + ' / 10'"></div>
+        <div class="ratings" [innerHTML]="getRatingStars() + ' ' + movie.vote_average + ' /<small>10</small>'"></div>
         <p class="description">{{movie.overview}}</p>
         <p class="info"><a [href]="movie.homepage" target="_blank">Visit homepage</a> <span class="separator">|</span> {{movie.runtime}} mins <span class="separator">|</span> <span href="" class="genre" *ngFor="let genre of movie.genres; let last = last"><a href="/genre/{{genre.name}}">{{genre.name}}</a><span *ngIf="!last">,</span> </span><span class="separator">|</span> {{movie.release_date}}</p>
       </div>

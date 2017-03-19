@@ -1,14 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { HTTPRequestService } from '../services/http-request.service';
 import { Movie } from '../class'
 import 'rxjs';
 
 @Component({
-  selector: 'app-popular-movies',
+  selector: 'app-similar-movies',
   template: `
   <section class="popular-movies clearfix">
     <header class="container clearfix">
-      <h2>Popular Movies</h2>
+      <h2>Similar Movies</h2>
       <p class="view-more"><a href="/movie/popular?">View Top Ratings Movies</a></p>
       <div class="row">
         <div *ngFor="let movie of movies" class="post">
@@ -20,22 +21,20 @@ import 'rxjs';
       </div>
     </header>
   </section>
-  <hr>
 `
 })
-export class PopularMoviesComponent implements OnInit {
+export class SimilarMoviesComponent implements OnInit {
   movies: Movie[];
 
-  constructor(private _http:HTTPRequestService) { this.movies = new Array(); }
+  constructor(private _http:HTTPRequestService, private route: ActivatedRoute) { this.movies = new Array(); }
 
   ngOnInit() {
     let date: Date;
     let movie: Movie;
-    this._http.getPopularMovies()
+    this.route.params.switchMap((params: Params) => this._http.getSimilarMovies(+params['id']))
               .subscribe(
                 data => {
-                  data.splice(0, 1);
-                  data = data.splice(0, 6);
+                  data = data.splice(0, 12);
                   data.forEach((dataObject) => {
                     movie = dataObject;
                     this._http.formatMovie(movie);

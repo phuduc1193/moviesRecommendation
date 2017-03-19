@@ -4,6 +4,7 @@ import { MovieRoutingModule } from '../routing.module';
 
 import { MovieComponent } from '../components/movie.component';
 import { MovieDetailsComponent } from '../components/movie-details.component';
+import { SimilarMoviesComponent } from '../components/similar-movies.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { MovieDetailsComponent } from '../components/movie-details.component';
   ],
   declarations: [
     MovieComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    SimilarMoviesComponent
   ]
 })
 export class MoviesModule { }

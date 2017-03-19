@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 $dark-primary: #252529;
 $primary: #73e298;
+$light-primary: #c1eacf;
 $secondary: #8b8b9f;
 @mixin transition($transition...) {
     -webkit-transition: $transition;
@@ -30,6 +31,7 @@ $secondary: #8b8b9f;
 
 * {
   box-sizing: border-box;
+  @include transition(all 0.3s ease-in);
 }
 
 html, body {
@@ -67,6 +69,14 @@ hr {
     border-top: 1px solid #b4b4b4;
 }
 
+span.separator {
+  margin: 0 0.5em;
+}
+
+a {
+  text-decoration: none;
+}
+
 #scrollToTop {
     display: none;
     position: fixed;
@@ -83,7 +93,6 @@ hr {
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
-    @include transition(all 0.3s ease-in);
     &:hover {
       background-color: darken($primary, 55%);
     }
@@ -121,11 +130,8 @@ hr {
     a {
       margin-left: 1em;
 
-      text-decoration: none;
-
       color: $secondary;
 
-      @include transition(all 0.3s ease);
       &:hover, &:active, &:focus {
         color: $primary;
       }
@@ -148,8 +154,6 @@ hr {
   margin-top: 2em;
   padding: 1em 4.5em;
 
-  text-decoration: none;
-
   border: none;
   border-radius: 2em;
   outline: none;
@@ -159,8 +163,6 @@ hr {
   &.btn-primary {
     color: white;
     background: $primary;
-
-    @include transition(all 0.3s ease);
 
     &:hover, &:active, &:focus {
       cursor: pointer;
@@ -215,7 +217,59 @@ hr {
 
     justify-content: center;
     align-items: center;
+    &.movie-details {
+      width: 70%;
+      justify-content: flex-start;
+      margin: 0 auto;
+      .banner-content {
+        width: auto;
+        .ratings {
+          font-size: 1.5em;
+          i {
+            font-size: 0.9em;
+          }
+        }
+        .info {
+          margin: 0;
+          color: rgba(darken(white, 20%), 0.9);
+          a {
+            color: rgba(darken(white, 20%), 0.9);
+            &:hover, &:active, &:focus { color: white; }
+          }
+        }
+        .tagline {
+          display: block;
+          color: $light-primary;
+          font-family: monospace;
+          font-size: 1.2em;
+          font-weight: 700;
+          font-style: italic;
+          margin: 1em 0 1em 2em;
 
+          &::before {
+            display: inline-block;
+            content: "\201C";
+            font-size: 1.4em;
+            position: relative;
+            left: -0.4em;
+            top: 0.2em;
+            color: $light-primary;
+          }
+        }
+      }
+      .collection {
+        font-family: fantasy;
+        margin-top: 1em;
+        font-size: 1.3em;
+        font-weight: 700;
+        color: white;
+
+        a {
+          color: white;
+          &:hover, &:active, &:focus { color: rgba(darken(white, 20%), 0.9); }
+        }
+      }
+    }
     .banner-featured-poster {
       position: relative;
 
@@ -248,11 +302,8 @@ hr {
         font-weight: 700;
 
         a {
-          text-decoration: none;
-
           color: white;
 
-          @include transition(color 0.3s ease);
           &:hover, &:active, &:focus {
             color: lighten($secondary, 20%);
           }
@@ -272,7 +323,7 @@ hr {
           font-size: 1.35em;
         }
         .inactive {
-          color: #48494d;
+          color: lighten($dark-primary, 50%);
         }
       }
       .description {
@@ -291,15 +342,9 @@ hr {
         font-size: 1em;
         font-weight: 700;
         line-height: 1.5em;
-        span.separator {
-          margin: 0 0.5em;
-        }
         a {
-          text-decoration: none;
-
           color: white;
 
-          @include transition(all 0.3s ease);
           &:hover, &:active, &:focus {
             color: $secondary;
           }
@@ -335,11 +380,8 @@ hr {
       font-size: 1em;
 
       a {
-        text-decoration: none;
-
         color: $secondary;
 
-        @include transition(all 0.3s ease);
         &:hover, &:focus, &:active {
           color: darken($primary, 35%);
         }
@@ -364,8 +406,6 @@ hr {
       -moz-box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.47);
       box-shadow: 0px 3px 35px rgba(0, 0, 0, 0.47);
 
-      @include transition(box-shadow 0.3s ease);
-
       &:hover {
         -webkit-box-shadow: 0px 7px 35px rgba(0, 0, 0, 0.77);
         -moz-box-shadow: 0px 7px 35px rgba(0, 0, 0, 0.77);
@@ -375,13 +415,10 @@ hr {
     a.title {
       margin: 1em 0 0 0;
 
-      text-decoration: none;
-
       color: $dark-primary;
 
       font-size: 1.1em;
 
-      @include transition(color 0.3s ease);
       &:hover, &:active, &:focus {
         color: darken($primary, 35%);
       }
@@ -455,13 +492,10 @@ hr {
     a {
       margin: 0 0.5em;
 
-      text-decoration: none;
-
       color: $secondary;
 
       font-size: 0.8em;
 
-      @include transition(color 0.3s ease);
       &:hover, &:focus, &:active {
         color: darken($primary, 45%);
       }
@@ -483,7 +517,7 @@ hr {
 
       &.active {
         z-index: 100;
-        top: 7.5%;
+        top: 5.5%;
         right: 3%;
         left: auto;
 
@@ -565,6 +599,16 @@ hr {
     padding: 1.5em 0;
     .logo {
       margin: 0.5em 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px) and (orientation: landscape) {
+  .main-header {
+    .main-nav {
+      &.active {
+        top: 7.5%;
+      }
     }
   }
 }
