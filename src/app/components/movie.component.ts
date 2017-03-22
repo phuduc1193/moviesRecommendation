@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-movie',
   template: `
   <app-movie-details></app-movie-details>
+  <app-recommended-movies></app-recommended-movies>
+  <hr>
   <app-similar-movies></app-similar-movies>
   `
 })

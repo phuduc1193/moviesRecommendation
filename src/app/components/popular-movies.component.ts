@@ -9,7 +9,7 @@ import 'rxjs';
   <section class="popular-movies clearfix">
     <header class="container clearfix">
       <h2>Popular Movies</h2>
-      <p class="view-more"><a href="/movie/popular?">View Top Ratings Movies</a></p>
+      <p class="view-more"><a href="/movie/top-rated">View Top Ratings Movies</a></p>
       <div class="row">
         <div *ngFor="let movie of movies" class="post">
           <a [href]="'/movie/' + movie.id"><img [src]="movie.poster_path" [alt]="movie.title"></a>
@@ -20,7 +20,6 @@ import 'rxjs';
       </div>
     </header>
   </section>
-  <hr>
 `
 })
 export class PopularMoviesComponent implements OnInit {

@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
   <app-banner></app-banner>
   <app-popular-movies></app-popular-movies>
+  <hr>
   <app-popular-tvshows></app-popular-tvshows>
   <app-weekly-subscriber></app-weekly-subscriber>
   `

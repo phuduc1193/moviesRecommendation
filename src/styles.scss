@@ -31,6 +31,7 @@ $secondary: #8b8b9f;
 
 * {
   box-sizing: border-box;
+
   @include transition(all 0.3s ease-in);
 }
 
@@ -78,18 +79,22 @@ a {
 }
 
 #scrollToTop {
-    display: none;
     position: fixed;
-    bottom: 20px;
-    right: 30px;
     z-index: 99;
+    right: 30px;
+    bottom: 20px;
+
+    display: none;
+
+    padding: 15px;
+
+    cursor: pointer;
+
+    color: white;
     border: none;
+    border-radius: 5px;
     outline: none;
     background-color: $primary;
-    color: white;
-    cursor: pointer;
-    padding: 15px;
-    border-radius: 5px;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .4);
@@ -219,8 +224,9 @@ a {
     align-items: center;
     &.movie-details {
       width: 70%;
-      justify-content: flex-start;
       margin: 0 auto;
+
+      justify-content: flex-start;
       .banner-content {
         width: auto;
         .ratings {
@@ -231,6 +237,7 @@ a {
         }
         .info {
           margin: 0;
+
           color: rgba(darken(white, 20%), 0.9);
           a {
             color: rgba(darken(white, 20%), 0.9);
@@ -239,30 +246,39 @@ a {
         }
         .tagline {
           display: block;
+
+          margin: 1em 0 1em 2em;
+
           color: $light-primary;
+
           font-family: monospace;
           font-size: 1.2em;
           font-weight: 700;
           font-style: italic;
-          margin: 1em 0 1em 2em;
 
           &::before {
-            display: inline-block;
-            content: "\201C";
-            font-size: 1.4em;
             position: relative;
-            left: -0.4em;
             top: 0.2em;
+            left: -0.4em;
+
+            display: inline-block;
+
+            content: "\201C";
+
             color: $light-primary;
+
+            font-size: 1.4em;
           }
         }
       }
       .collection {
-        font-family: fantasy;
         margin-top: 1em;
+
+        color: white;
+
+        font-family: fantasy;
         font-size: 1.3em;
         font-weight: 700;
-        color: white;
 
         a {
           color: white;
@@ -397,6 +413,10 @@ a {
 
     width: 14.15%;
     margin: 2.5% 1.25% 1% 1.25%;
+
+    &:nth-child(6n+1){
+      clear:both;
+    }
     img {
       width: 100%;
       max-width: 100%;
@@ -619,6 +639,7 @@ a {
       &.active {
         top: 22%;
         right: 3%;
+
         width: 94%;
       }
     }
@@ -683,8 +704,9 @@ a {
     .banner-wrapper {
       display: block;
       .banner-featured-poster {
-        float: none;
         display: block;
+        float: none;
+
         margin: 0 auto;
       }
       .banner-content {
@@ -695,9 +717,10 @@ a {
 
   .row {
     .post {
+      float: none;
+
       width: 80%;
       margin: 1em auto 0 auto;
-      float: none;
     }
   }
 
@@ -705,17 +728,23 @@ a {
     padding-top: 1em;
     header {
       h2 {
-        margin: 0.5em 0;
-        font-size: 1.5em;
         display: block;
+
+        margin: 0.5em 0;
+
         text-align: center;
+
+        font-size: 1.5em;
       }
       .view-more {
-        font-size: 0.8em;
         display:block;
-        text-align: center;
-        margin-bottom: 1.5em;
         float: none;
+
+        margin-bottom: 1.5em;
+
+        text-align: center;
+
+        font-size: 0.8em;
       }
     }
   }

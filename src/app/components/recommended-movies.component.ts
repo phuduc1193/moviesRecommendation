@@ -5,11 +5,11 @@ import { Movie } from '../class'
 import 'rxjs';
 
 @Component({
-  selector: 'app-similar-movies',
+  selector: 'app-recommended-movies',
   template: `
   <section class="popular-movies clearfix">
     <header class="container clearfix">
-      <h2>Similar Movies</h2>
+      <h2>Recommendations</h2>
       <p class="view-more"><a href="/movie/top-rated">View Top Ratings Movies</a></p>
       <div class="row">
         <div *ngFor="let movie of movies" class="post">
@@ -18,13 +18,13 @@ import 'rxjs';
           <p class="post-info">Ratings: {{movie.vote_average}}</p>
           <p class="post-info">{{movie.release_date}}</p>
         </div>
-        <div *ngIf="movies.length==0" class="post">No Similar Movie Found</div>
+        <div *ngIf="movies.length==0" class="post">No Recommendation</div>
       </div>
     </header>
   </section>
 `
 })
-export class SimilarMoviesComponent implements OnInit {
+export class RecommendedMoviesComponent implements OnInit {
   movies: Movie[];
 
   constructor(private _http:HTTPRequestService, private route: ActivatedRoute) { this.movies = new Array(); }
@@ -32,7 +32,7 @@ export class SimilarMoviesComponent implements OnInit {
   ngOnInit() {
     let date: Date;
     let movie: Movie;
-    this.route.params.switchMap((params: Params) => this._http.getSimilarMovies(+params['id']))
+    this.route.params.switchMap((params: Params) => this._http.getRecommendedMovies(+params['id']))
               .subscribe(
                 data => {
                   data = data.splice(0, 6);

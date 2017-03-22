@@ -30,8 +30,18 @@ export class HTTPRequestService {
                      .map((res:Response) => res.json().results);
   }
 
+  getRecommendedMovies(id: number) {
+    return this._http.get(this.URL + 'movie/' + id + '/recommendations?api_key=' + this.api_key + this.language + '&page=1')
+                     .map((res:Response) => res.json().results);
+  }
+
   getMovieDetails(id: number) {
     return this._http.get(this.URL + 'movie/' + id + '?api_key=' + this.api_key + this.language + '&append_to_response=videos')
+                     .map((res:Response) => res.json());
+  }
+
+  getMovieCredits(id: number) {
+    return this._http.get(this.URL + 'movie/' + id + '/credits?api_key=' + this.api_key + this.language)
                      .map((res:Response) => res.json());
   }
 

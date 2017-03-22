@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { RoutingModule } from './routing.module';
 import { LoadingBarModule, LoadingBarService } from 'ng2-loading-bar';
