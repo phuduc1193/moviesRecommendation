@@ -9,11 +9,11 @@ import 'rxjs';
   template: `<section class="popular-tvshows clearfix">
     <header class="container clearfix">
       <h2>Popular TV Shows</h2>
-      <p class="view-more"><a href="/tv/top-rated">View Top Ratings Shows</a></p>
+      <p class="view-more"><a routerLink='/tv/top-rated'>View Top Ratings Shows</a></p>
       <div class="row">
         <div *ngFor="let show of shows" class="post">
-          <a [href]="'/tv/' + show.id"><img [src]="show.poster_path" [alt]="show.name"></a>
-          <a [href]="'/tv/' + show.id" class="title"><h3>{{show.name}}</h3></a>
+          <a [routerLink]="['/show', show.id]"><img [src]="show.poster_path" [alt]="show.name"></a>
+          <a [routerLink]="['/show', show.id]" class="title"><h3>{{show.name}}</h3></a>
           <p class="post-info">Ratings: {{show.vote_average}}</p>
           <p class="post-info">{{show.release_date}}</p>
         </div>

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
 
 import { BannerComponent } from '../components/banner.component';
 import { PopularMoviesComponent } from '../components/popular-movies.component';
@@ -20,6 +21,7 @@ import { Movie, Genre, TVShow, TVSeason } from '../class';
     BrowserModule,
     FormsModule,
     HttpModule,
+    RouterModule,
     JsonpModule
   ],
   declarations: [

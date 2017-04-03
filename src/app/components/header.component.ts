@@ -6,14 +6,14 @@ import { GlobalService } from '../services/global.service';
   template: `
   <header class="main-header">
     <div class="container">
-      <a href=""><h1 class="logo" [innerHTML]="theTitle"></h1></a>
+      <a routerLink='/home'><h1 class="logo" [innerHTML]="theTitle"></h1></a>
 
       <a class="menu" (click)="activeNav = !activeNav"><i class="fa fa-bars"></i></a>
       <nav class="main-nav{{isActive()}}">
-        <a href="">Movies</a>
-        <a href="">TV Shows</a>
-        <a href="">Celebs &amp; Photos</a>
-        <a href="">News</a>
+        <a routerLink='/movie'>Movies</a>
+        <a routerLink='/show'>TV Shows</a>
+        <a routerLink='/celeb'>Celebs &amp; Photos</a>
+        <a routerLink='/news'>News</a>
       </nav>
     </div>
   </header>

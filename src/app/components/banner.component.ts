@@ -10,13 +10,13 @@ import 'rxjs';
     <div class="banner-background" [ngStyle]="{ 'background-image': 'url(' + movie.backdrop_path + ')'}"></div>
     <div class="banner-wrapper">
       <div class="banner-featured-poster">
-        <a [href]="'/movie/' + movie.id"><img class="featured-image" [src]="movie.poster_path" [alt]="movie.title"></a>
+        <a [routerLink]="['/movie', movie.id]"><img class="featured-image" src="{{ movie?.poster_path }}" [alt]="movie.title"></a>
       </div>
       <div class="banner-content">
-        <h2 class="title"><a [href]="'/movie/' + movie.id">{{movie.title}}</a></h2>
-        <div class="ratings" [innerHTML]="getRatingStars() + ' ' + movie.vote_average + ' /<small>10</small>'"></div>
+        <h2 class="title"><a [routerLink]="['/movie', movie.id]">{{movie.title}}</a></h2>
+        <div class="ratings clearfix" [innerHTML]="getRatingStars() + ' ' + movie.vote_average + ' /<small>10</small>'"></div>
         <p class="description">{{movie.overview}}</p>
-        <p class="info"><a [href]="movie.homepage" target="_blank">Visit homepage</a> <span class="separator">|</span> {{movie.runtime}} mins <span class="separator">|</span> <span href="" class="genre" *ngFor="let genre of movie.genres; let last = last"><a [href]="'/genre/' + genre.id">{{genre.name}}</a><span *ngIf="!last">,</span> </span><span class="separator">|</span> {{movie.release_date}}</p>
+        <p class="info"><a [href]="movie.homepage" target="_blank">Visit homepage</a> <span class="separator">|</span> {{movie.runtime}} mins <span class="separator">|</span> <span href="" class="genre" *ngFor="let genre of movie.genres; let last = last"><a [routerLink]="['/genre', genre.id]">{{genre.name}}</a><span *ngIf="!last">,</span> </span><span class="separator">|</span> {{movie.release_date}}</p>
       </div>
     </div>
   </section>

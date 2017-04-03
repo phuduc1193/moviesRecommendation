@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Movie, TVShow } from '../class';
-import { LoadingBarService } from 'ng2-loading-bar';
 import 'rxjs';
 
 @Injectable()
@@ -11,11 +10,9 @@ export class HTTPRequestService {
   language = '&language=en-US';
   URL = 'https://api.themoviedb.org/3/'
 
-  constructor (private _http: Http, private loadingBar: LoadingBarService) { }
+  constructor (private _http: Http) { }
 
   getPopularMovies() {
-    this.loadingBar.start();
-    this.loadingBar.complete();
     return this._http.get(this.URL + 'movie/popular?api_key=' + this.api_key + this.language + '&page=1')
                      .map((res:Response) => res.json().results);
   }

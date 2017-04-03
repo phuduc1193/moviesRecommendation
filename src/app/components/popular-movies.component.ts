@@ -9,11 +9,11 @@ import 'rxjs';
   <section class="popular-movies clearfix">
     <header class="container clearfix">
       <h2>Popular Movies</h2>
-      <p class="view-more"><a href="/movie/top-rated">View Top Ratings Movies</a></p>
+      <p class="view-more"><a routerLink='/movie/top-rated'>View Top Ratings Movies</a></p>
       <div class="row">
         <div *ngFor="let movie of movies" class="post">
-          <a [href]="'/movie/' + movie.id"><img [src]="movie.poster_path" [alt]="movie.title"></a>
-          <a [href]="'/movie/' + movie.id" class="title"><h3>{{movie.title}}</h3></a>
+          <a [routerLink]="['/movie', movie.id]"><img [src]="movie.poster_path" [alt]="movie.title"></a>
+          <a [routerLink]="['/movie', movie.id]" class="title"><h3>{{movie.title}}</h3></a>
           <p class="post-info">Ratings: {{movie.vote_average}}</p>
           <p class="post-info">{{movie.release_date}}</p>
         </div>

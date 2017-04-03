@@ -3,7 +3,6 @@ import { Component, HostListener } from '@angular/core';
 @Component({
   selector: 'app',
   template: `
-  <loading-bar #loadingBar [height]="2" [color]="'#73e298'" [runInterval]="300"></loading-bar>
   <app-header></app-header>
   <router-outlet></router-outlet>
   <app-footer></app-footer>

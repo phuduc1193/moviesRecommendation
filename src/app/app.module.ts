@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { RoutingModule } from './routing.module';
-import { LoadingBarModule, LoadingBarService } from 'ng2-loading-bar';
 import { HomeModule } from './modules/home.module';
 import { MoviesModule } from './modules/movies.module';
 
@@ -23,10 +22,9 @@ import { GlobalService } from './services/global.service';
   imports: [
     BrowserModule,
     RoutingModule,
-    LoadingBarModule,
     HomeModule, MoviesModule
   ],
-  providers: [ GlobalService, LoadingBarService ],
+  providers: [ GlobalService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

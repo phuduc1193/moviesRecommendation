@@ -4,6 +4,7 @@ import { MovieComponent } from '../components/movie.component';
 import { TopRatedMoviesComponent } from '../components/top-rated.movies.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/movie/top-rated', pathMatch: 'full' },
   { path: 'top-rated', component: TopRatedMoviesComponent },
   { path: ':id', component: MovieComponent }
 ];
