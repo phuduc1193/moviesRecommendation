@@ -6,7 +6,7 @@ import { GlobalService } from '../services/global.service';
   template: `
   <footer class="main-footer">
     <p class="logo" [innerHTML]="theTitle"></p>
-    <p class="copyright">&copy; 2017 {{_globals.pageTitle}}. All Rights Reserved.</p>
+    <p class="copyright">&copy; 2017 {{_globals.pageTitle}} and <a href="https://www.themoviedb.org/" target="_blank">themoviedb.org</a> contributors. All Rights Reserved.</p>
     <div class="footer-links">
       <a href="#">Terms of Use</a>
       <a href="#">Privacy Policy</a>

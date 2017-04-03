@@ -32,6 +32,11 @@ export class HTTPRequestService {
                      .map((res:Response) => res.json().results);
   }
 
+  getTopRatedMovies(pageNum: number = 1) {
+    return this._http.get(this.URL + 'movie/top_rated?api_key=' + this.api_key + this.language + '&page=' + pageNum)
+                     .map((res:Response) => res.json().results);
+  }
+
   getMovieDetails(id: number) {
     return this._http.get(this.URL + 'movie/' + id + '?api_key=' + this.api_key + this.language + '&append_to_response=videos')
                      .map((res:Response) => res.json());
