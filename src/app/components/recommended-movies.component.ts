@@ -44,7 +44,7 @@ export class RecommendedMoviesComponent implements OnInit {
                   });
                 },
                 error => console.log(error),
-                () => console.log("Finished")
+                () => console.log("Get Recommended Movies Finished")
               );
   }
 }

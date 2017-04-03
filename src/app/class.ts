@@ -88,7 +88,7 @@ export class TVSeason {
   id: number;
   title: string;
   overview: string;
-  poster_url: string;
+  poster_path: string;
   air_date: string;
   episodes: any;
 }

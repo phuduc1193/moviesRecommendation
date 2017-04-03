@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Movie, TVShow } from '../class';
+import { Movie, TVShow, TVSeason } from '../class';
 import 'rxjs';
 
 @Injectable()
@@ -37,8 +37,18 @@ export class HTTPRequestService {
                      .map((res:Response) => res.json().results);
   }
 
+  getTopRatedShows(pageNum: number = 1) {
+    return this._http.get(this.URL + 'tv/top_rated?api_key=' + this.api_key + this.language + '&page=' + pageNum)
+                     .map((res:Response) => res.json().results);
+  }
+
   getMovieDetails(id: number) {
     return this._http.get(this.URL + 'movie/' + id + '?api_key=' + this.api_key + this.language + '&append_to_response=videos')
+                     .map((res:Response) => res.json());
+  }
+
+  getShowDetails(id: number) {
+    return this._http.get(this.URL + 'tv/' + id + '?api_key=' + this.api_key + this.language + '&append_to_response=videos')
                      .map((res:Response) => res.json());
   }
 
@@ -75,6 +85,9 @@ export class HTTPRequestService {
       show.poster_path = imagePath + 'w500' + show.poster_path;
     if(show.backdrop_path)
       show.backdrop_path = imagePath + 'w1280' + show.backdrop_path;
+    if(show.seasons)
+      for (let key in show.seasons)
+        show.seasons[key].poster_path = imagePath + 'w500' + show.seasons[key].poster_path;
     date = new Date(show.first_air_date);
     show.first_air_date = formatDate(date);
     show.popularity = parseFloat(show.popularity.toFixed(2));

@@ -42,7 +42,7 @@ export class PopularTVShowsComponent implements OnInit {
                   });
                 },
                 error => console.log(error),
-                () => console.log('Finished')
+                () => console.log('Get Popular Shows Finished')
               );
   }
 }

@@ -37,7 +37,7 @@ export class BannerComponent implements OnInit {
                   this._http.formatMovie(this.movie);
                 },
                 error => console.log(error),
-                () => console.log("Finished")
+                () => console.log("Get Banner Movie Finished")
               );
   }
 

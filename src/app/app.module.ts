@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { RoutingModule } from './routing.module';
 import { HomeModule } from './modules/home.module';
 import { MoviesModule } from './modules/movies.module';
+import { ShowsModule } from './modules/shows.module';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header.component';
@@ -22,7 +23,7 @@ import { GlobalService } from './services/global.service';
   imports: [
     BrowserModule,
     RoutingModule,
-    HomeModule, MoviesModule
+    HomeModule, MoviesModule, ShowsModule
   ],
   providers: [ GlobalService ],
   bootstrap: [ AppComponent ]

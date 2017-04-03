@@ -42,7 +42,7 @@ export class PopularMoviesComponent implements OnInit {
                   });
                 },
                 error => console.log(error),
-                () => console.log("Finished")
+                () => console.log("Get Popular Movies Finished")
               );
   }
 }

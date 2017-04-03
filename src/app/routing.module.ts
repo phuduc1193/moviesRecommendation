@@ -6,6 +6,7 @@ import { PageNotFoundComponent } from './components/not-found.component';
 
 const router: Routes = [
   { path: 'movie', loadChildren: 'app/modules/movies.module#MoviesModule' },
+  { path: 'show', loadChildren: 'app/modules/shows.module#ShowsModule' },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: '**', component: PageNotFoundComponent }

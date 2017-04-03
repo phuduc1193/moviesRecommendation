@@ -17,7 +17,7 @@ import 'rxjs';
         <h2 class="title"><a [href]="movie.homepage" target="_blank">{{movie.title}}</a></h2>
         <div class="ratings" [innerHTML]="getRatingStars() + ' ' + movie.vote_average + ' <small>(' + movie.vote_count + ' votes)</small>'"></div>
         <div class="info">{{movie.runtime}} mins <span class="separator">|</span> <span href="" class="genre" *ngFor="let genre of movie.genres; let last = last"><a [routerLink]="['/genre', genre.id]">{{genre.name}}</a><span *ngIf="!last">,</span> </span><span class="separator">|</span> {{movie.release_date}}</div>
-        <q class="tagline">{{movie.tagline}}</q>
+        <q *ngIf="movie.tagline" class="tagline">{{movie.tagline}}</q>
         <p class="description">{{movie.overview}}</p>
         <p class="info">Popularity: {{movie.popularity}} <span class="separator">|</span> Budget: {{movie.budget}} <span class="separator">|</span> Revenue: {{movie.revenue}}</p>
         <div *ngIf="movie.belongs_to_collection"><p class="collection">Belong to: <a [routerLink]="['/collection', movie.belongs_to_collection.id]"> {{movie.belongs_to_collection.name}} </a></p></div>
@@ -40,7 +40,7 @@ export class MovieDetailsComponent implements OnInit {
                           this._http.formatMovie(this.movie);
                         },
                         error => console.log(error),
-                        () => console.log("Finished")
+                        () => console.log("Get Movie Details Finished")
                       );
   }
 

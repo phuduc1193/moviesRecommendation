@@ -41,7 +41,7 @@ export class TopRatedMoviesComponent implements OnInit {
                   });
                 },
                 error => console.log(error),
-                () => console.log("Finished")
+                () => console.log("Get Top Rated Movies Finished")
               );
   }
 
@@ -59,7 +59,7 @@ export class TopRatedMoviesComponent implements OnInit {
                   });
                 },
                 error => console.log(error),
-                () => console.log("Finished")
+                () => console.log("Get More Top Rated Movies Finished")
               );
   }
 }
